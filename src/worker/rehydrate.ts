@@ -19,10 +19,10 @@ import {
   Map_,
   Duration,
 } from "apache-arrow/type";
-import { BufferType, Type } from "apache-arrow/enum";
+import { BufferType, Type } from "apache-arrow";
 import { Data } from "apache-arrow/data";
-import { Vector } from "apache-arrow/vector";
-import { Field } from "apache-arrow/schema";
+import { Vector } from "apache-arrow";
+import { Field } from "apache-arrow";
 import type { Buffers } from "apache-arrow/data";
 import { Polygon, isPolygon } from "../type";
 import { PolygonData } from "../data";

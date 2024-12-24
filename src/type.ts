@@ -5,7 +5,7 @@ import {
   List,
   FixedSizeList,
   DataType,
-} from "apache-arrow/type";
+} from "apache-arrow";
 
 // Note: this apparently has to be arrow.Float and not arrow.Float64 to ensure
 // that recreating a data instance with arrow.makeData type checks using the

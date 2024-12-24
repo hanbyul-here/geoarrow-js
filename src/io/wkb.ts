@@ -1,4 +1,4 @@
-import { makeData } from "apache-arrow/data";
+import { makeData, Data } from "apache-arrow";
 import {
   GeoArrowData,
   LineStringData,
@@ -14,9 +14,8 @@ import type {
   BinaryPolygonGeometry,
 } from "@loaders.gl/schema";
 import { assert, assertFalse } from "../algorithm/utils/assert";
-import { FixedSizeList, Float64, List } from "apache-arrow/type";
-import { Field } from "apache-arrow/schema";
-
+import { FixedSizeList, Float64, List } from "apache-arrow";
+import { Field } from "apache-arrow";
 
 export enum WKBType {
   Point,
@@ -39,7 +38,6 @@ export function parseWkb(
 ): GeoArrowData {
   const parsedGeometries: BinaryGeometry[] = [];
 
-
   for (const item of iterBinary(data)) {
     if (item === null) {
       throw new Error("Null entries are not currently supported");
@@ -59,7 +57,14 @@ export function parseWkb(
       return repackLineStrings(parsedGeometries as BinaryLineGeometry[], dim);
 
     case WKBType.Polygon:
-      return repackPolygons(parsedGeometries as BinaryPolygonGeometry[], dim);
+      const repackedPolygons = repackPolygons(
+        parsedGeometries as BinaryPolygonGeometry[],
+        dim,
+      );
+      console.log("here");
+      console.log(repackedPolygons instanceof Data);
+
+      return repackedPolygons;
 
     default:
       assertFalse("Not yet implemented for this geometry type");

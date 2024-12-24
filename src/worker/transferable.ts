@@ -1,7 +1,7 @@
-import { DataType } from "apache-arrow/type";
-import { BufferType } from "apache-arrow/enum";
-import { Data } from "apache-arrow/data";
-import { Vector } from "apache-arrow/vector";
+import { DataType } from "apache-arrow";
+import { BufferType } from "apache-arrow";
+import { Data } from "apache-arrow";
+import { Vector } from "apache-arrow";
 import { hardClone } from "./hard-clone";
 
 /**
